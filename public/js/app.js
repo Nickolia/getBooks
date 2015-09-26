@@ -1,31 +1,34 @@
 'use strict';
 
-// Declare app level module which depends on filters, and services
+var get_book = angular.module('getBooks', [
+    'ngRoute',
+    'ngAria',
+    'ngAnimate',
+    'ngMaterial',
+    'ngMdIcons',
+    'btford.socket-io',
+    'getBooksCore',
+    'getBooksIndex',
+    'getBooksAuth',
+    'getBooksSidebar'
 
-angular.module('myApp', [
-  'ngRoute',
-
-  'myApp.controllers',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-
-  // 3rd party dependencies
-  'btford.socket-io'
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
-    when('/view1', {
-      templateUrl: 'partials/partial1',
-      controller: 'MyCtrl1'
-    }).
-    when('/view2', {
-      templateUrl: 'partials/partial2',
-      controller: 'MyCtrl2'
+    when('/', {
+      templateUrl: 'index/template/index.html',
+      controller: 'Index'
     }).
     otherwise({
       redirectTo: '/view1'
     });
 
   $locationProvider.html5Mode(true);
+}).
+run(function($rootScope, $templateCache) {
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+        if (typeof(current) !== 'undefined'){
+            $templateCache.remove(current.templateUrl);
+        }
+    });
 });

@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "getBook",
   "version": "0.0.0",
   "ignore": [
     "**/.*",
@@ -7,8 +7,14 @@
     "components"
   ],
   "dependencies": {
-    "angular": "~1.2.14",
-    "angular-socket-io": "~0.3.0",
-    "angular-route": "~1.2.14"
+    "angular": "latest",
+    "angular-socket-io": "latest",
+    "angular-animate": "latest",
+    "angular-material": "latest",
+    "angular-aria": "latest",
+    "angular-route": "latest"
+  },
+  "resolutions": {
+    "angular": "latest"
   }
 }
