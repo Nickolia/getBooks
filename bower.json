@@ -12,7 +12,9 @@
     "angular-animate": "latest",
     "angular-material": "latest",
     "angular-aria": "latest",
-    "angular-route": "latest"
+    "angular-route": "latest",
+    "cheerio": "latest",
+    "mongoose": "latest"
   },
   "resolutions": {
     "angular": "latest"

@@ -1,10 +1,15 @@
 angular.module('getBooksAuth', [])
-    .directive('login',['$templateCache', function ($templateCache) {
+    .directive('login',['$templateCache','socket', function ($templateCache,socket) {
         return {
             restrict: 'E',
-            template : $templateCache('auth/template/login.html'),
+            template : $templateCache.get('login.html'),
             controller: function($scope){
-
+                $scope.sendLogin = function(){
+                    socket.emit('login:set', $scope.login);
+                };
+                socket.on('login:get', function (data) {
+                    console.log(data)
+                });
             }
         };
     }]);

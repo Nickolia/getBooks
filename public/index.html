@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <base href='/'/>
     <title></title>
-    <link rel='stylesheet', href='css/app.css'/>
+    <link rel='stylesheet' href='css/app.css'/>
+    <link rel='stylesheet' href='css/font.css'/>
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <meta name="viewport" content="initial-scale=1" />
+    <meta name="viewport" content="width=device-width">
 </head>
 <body ng-controller='Master'>
 
+
     <sidebar></sidebar>
-    <topbar></topbar>
-    <ng-view></ng-view>
+    <section-body>
+        <ng-view></ng-view>
+    </section-body>
+
 
 
 
@@ -31,18 +35,12 @@
     <script type="text/javascript" src="js/getBooksCore/build.js"></script>
 
     <!--Book.Auth-->
-    <script type="text/javascript" src="js/getBooksAuth/template/template.js"></script>
     <script type="text/javascript" src="js/getBooksAuth/build.js"></script>
 
-
     <!--Book.Sidebar-->
-    <script type="text/javascript" src="js/getBooksSidebar/template/template.js"></script>
-
     <script type="text/javascript" src="js/getBooksSidebar/build.js"></script>
 
-
     <!--Book.Index-->
-    <script type="text/javascript" src="js/getBooksIndex/template/template.js"></script>
     <script type="text/javascript" src="js/getBooksIndex/build.js"></script>
 
 

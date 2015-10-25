@@ -6,10 +6,12 @@ module.exports = function (socket) {
   socket.emit('send:name', {
     name: 'Bob'
   });
+    var auth =  function(data){
+        console.log(data)
+        socket.emit('login:get', {
+            name: data
+        });
+    }
+  socket.on('login:set', auth);
 
-  setInterval(function () {
-    socket.emit('send:time', {
-      time: (new Date()).toString()
-    });
-  }, 1000);
 };

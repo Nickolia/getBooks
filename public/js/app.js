@@ -6,21 +6,21 @@ var get_book = angular.module('getBooks', [
     'ngAnimate',
     'ngMaterial',
     'ngMdIcons',
-    'btford.socket-io',
     'getBooksCore',
     'getBooksIndex',
     'getBooksAuth',
-    'getBooksSidebar'
+    'getBooksSidebar',
+    'btford.socket-io'
 
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
     when('/', {
-      templateUrl: 'index/template/index.html',
+      templateUrl: 'index.html',
       controller: 'Index'
     }).
     otherwise({
-      redirectTo: '/view1'
+      redirectTo: '/'
     });
 
   $locationProvider.html5Mode(true);
