@@ -12,9 +12,10 @@
     "angular-animate": "latest",
     "angular-material": "latest",
     "angular-aria": "latest",
+    "angular-sanitize": "latest",
     "angular-route": "latest",
-    "cheerio": "latest",
-    "mongoose": "latest"
+    "animate.css": "latest",
+    "lodash": "latest"
   },
   "resolutions": {
     "angular": "latest"

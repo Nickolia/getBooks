@@ -1,4 +1,4 @@
 angular.module('getBooksIndex', [])
-    .controller('Index',[ function () {
+    .controller('Index',['$scope', 'socket', function ($scope, socket) {
 
     }]);

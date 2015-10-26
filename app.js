@@ -17,37 +17,43 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
 
+var init = function(){
+
+    io = require('socket.io').listen(server);
+
+    io.on('connection', Connect);
+
+};
+
 app.set('port', process.env.PORT || 4300);
-/*app.use(logger('dev'));
+app.use(logger('dev'));
 app.use(methodOverride());
 app.use(session({ resave: true, saveUninitialized: true,
     secret: 'uwotm8' }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(multer({
+/*app.use(multer({
     dest: './uploads'
 }));*/
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+parser.ee.on('clear&update:samlib:list',function(list_clear, list_update){
+    io.sockets.emit('clear&update:samlib:list', list_clear,list_update);
+});
 
-/*if (app.get('env') === 'development') {
-  app.use(express.errorHandler());
-}
+var Connect =  function (socket) {
+    var socketId = socket.id;
 
-if (app.get('env') === 'production') {
-  // TODO
-}
-
-app.get('/', routes.index);
-
-app.get('/api/name', api.name);
+    socket.emit('clear&update:samlib:list',[], parser.list);
 
 
-app.get('*', routes.index);*/
+};
 
-io.sockets.on('connection', require('./routes/auth'));
-
-server.listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
+server.listen(app.get('port'), function (err) {
+    if (err) {
+        throw err
+    }
+    console.log('Start server listening on port ' + app.get('port'));
+    init()
 });

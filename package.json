@@ -7,7 +7,8 @@
     "lodash-node": "latest",
     "request": "latest",
     "cheerio": "latest",
-    "socket.io": "latest"
+    "socket.io": "latest",
+    "mongoose": "latest"
   },
   "devDependencies": {
     "browserify": "^11.2.0",
