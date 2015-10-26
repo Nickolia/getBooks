@@ -1,7 +1,7 @@
 <md-toolbar class="md-theme-light">
     <div class="md-toolbar-tools">
         <h2 flex flex-order="1">
-            <span>Обновления</span>
+            <span ng-bind-html="options.tag_name"></span>
         </h2>
         <div  flex flex-order="2" layout="row" layout-align="end center">
 
@@ -10,9 +10,9 @@
 
 
 </md-toolbar>
-<md-content md-scroll-y style="height: {{!update_list.list.length?0:440}}px;">
+<md-content md-scroll-y style="height: {{!list.length?0:440}}px;">
     <md-list>
-        <md-list-item class="md-3-line md-no-proxy animated fadeInLeft" ng-repeat="item in update_list.list | orderBy:update_list.order | limitTo: update_list.limit track by item.id">
+        <md-list-item class="md-3-line md-no-proxy animated fadeInLeft" ng-repeat="item in list | orderBy:options.order | limitTo: options.limit | filter: filter_active track by item.id">
             <div class="md-list-item-text">
                 <h3 ng-bind-html="item.title"></h3>
                 <h4 ng-bind-html="item.author"></h4>
@@ -30,8 +30,8 @@
             <md-divider></md-divider>
         </md-list-item>
     </md-list>
-    <div layout="row" layout-sm="column" layout-align="center center" layout-wrap  layout-margin ng-if="!!update_list.list.length && update_list.limit != update_list.list.length">
-        <md-button class="md-fab" aria-label="Показать ещё" ng-click="update_list.addToLimit()">
+    <div layout="row" layout-sm="column" layout-align="center center" layout-wrap  layout-margin ng-if="!!list.length && options.limit != list.length">
+        <md-button class="md-fab" aria-label="Показать ещё" ng-click="options.addToLimit()">
             <ng-md-icon icon="control_point" options="{'duration': 375}"></ng-md-icon>
             <md-tooltip>
                 Показать ещё

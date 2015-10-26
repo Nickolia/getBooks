@@ -2,18 +2,51 @@ angular.module('getBooksCore', [])
     .directive('updateList',['$templateCache',function ($templateCache) {
         return {
             restrict: 'E',
+            scope: {
+                list: "="
+            },
             template: $templateCache.get('update_list.html'),
-            controller: function($scope, socket) {
+            link: function($scope, element, attr){
+                $scope.tags_options = {
+                    lib_params : {
+                        "EDT" : "edit",
+                        "TXT" : "edit",
+                        "DEL" : "delete",
+                        "NEW" : "new",
+                        "RPL" : "edit",
+                        "REN" : "edit",
+                        "UNK" : ""
+                    },
+                    lib_name : {
+                        "edit" : "Обновления",
+                        "new" : "Новинки",
+                        "del" : "Удаленные"
+                    }
 
-                socket.on('clear&update:samlib:list', function (list_clear, list_update) {
-                    _.each(list_clear, function(item){
-                        $scope.update_list.list = _.filter($scope.update_list.list, function(num){ return (num.id != item.id)||(num.id == item.id && num.unix_time == item.unix_time); });
-                    });
-                    _.each(list_update, function(item){
-                        item.unix_time = item.unix_time*1;
-                        $scope.update_list.list.push(item);
-                    });
-                });
+                };
+
+                $scope.options = {
+                    tag : attr.propertyTag,
+                    tag_name : !attr.propertyTag?'Все обновления!':$scope.tags_options.lib_name[attr.propertyTag],
+                    limit: 100,
+                    order: '-unix_time',
+                    addToLimit: function(){
+                        if(this.limit+100 < $scope.list.length){
+                            this.limit+=100;
+                        } else {
+                            this.limit = $scope.list.length;
+                        }
+                    }
+                };
+
+                $scope.filter_active = function(item) {
+                    if(!$scope.options.tag || $scope.tags_options.lib_params[item.tag] == $scope.options.tag){
+                        return item;
+                    } else {
+                        return false;
+                    }
+
+                };
             }
         };
     }])

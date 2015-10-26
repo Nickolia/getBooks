@@ -2,22 +2,23 @@
 <html ng-app="getBooks">
 <head lang="en">
     <meta charset="UTF-8">
-    <base href='/'/>
-    <title></title>
+    <meta name="fragment" content="!" />
+    <base href="/">
+    <title>Reader Samlib</title>
     <link rel='stylesheet' href='css/app.css'/>
     <link rel='stylesheet' href='css/font.css'/>
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
     <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
     <meta name="viewport" content="initial-scale=1" />
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
 </head>
 <body ng-controller='Master'>
 
 
     <sidebar></sidebar>
     <section-body>
-        <ng-view  layout="row"></ng-view>
+        <ng-view  layout-gt-md></ng-view>
     </section-body>
 
 

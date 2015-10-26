@@ -5,6 +5,6 @@
     .controller('Index',['$scope', 'socket', function ($scope, socket) {
 
     }])
-.run(["$templateCache", function($templateCache) {$templateCache.put("index.html","<div flex hide-sm  flex-order=\"1\" layout-margin>\n\n</div>\n<md-whiteframe class=\"md-whiteframe-4dp\" flex  flex-order=\"2\" layout-margin>\n    <update-list></update-list>\n</md-whiteframe>\n<div flex hide-sm  flex-order=\"3\" layout-margin>\n\n</div>");}])
+.run(["$templateCache", function($templateCache) {$templateCache.put("index.html","\n<md-whiteframe class=\"md-whiteframe-4dp\" flex-gt-md  flex-order-gt-md=\"1\" layout-margin>\n    <update-list property-tag=\"new\" list=\"update_list.list\" ></update-list>\n</md-whiteframe>\n\n\n<md-whiteframe class=\"md-whiteframe-4dp\" flex-gt-md  flex-order-gt-md=\"2\" layout-margin>\n    <update-list property-tag=\"edit\"  list=\"update_list.list\"></update-list>\n</md-whiteframe>\n\n\n");}])
 
 })();

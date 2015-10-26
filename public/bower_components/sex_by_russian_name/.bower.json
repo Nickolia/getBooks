@@ -1,0 +1,14 @@
+{
+  "name": "sex_by_russian_name",
+  "homepage": "https://github.com/vadimiztveri/sex_by_russian_name",
+  "_release": "79cc974d09",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "79cc974d09578cfd0373fed8fd590a8c2b1ef592"
+  },
+  "_source": "https://github.com/vadimiztveri/sex_by_russian_name.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/vadimiztveri/sex_by_russian_name.git",
+  "_direct": true
+}

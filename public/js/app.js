@@ -20,11 +20,16 @@ var get_book = angular.module('getBooks', [
           templateUrl: 'index.html',
           controller: 'Index'
         }).
+        when('/about', {
+          templateUrl: 'index.html',
+          controller: 'Index'
+        }).
         otherwise({
           redirectTo: '/'
         });
 
-      $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
+        $locationProvider.hashPrefix('!');
     })
     .run(function($rootScope, $templateCache) {
         $rootScope.$on('$routeChangeStart', function(event, next, current) {

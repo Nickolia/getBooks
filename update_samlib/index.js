@@ -4,6 +4,7 @@ var request = require("request"),
     url = "http://samlib.ru/logs/",
     CronJob = require('cron').CronJob,
     ObjectID = require("bson-objectid"),
+    sex = require('sex'),
     EventEmitter = require("events").EventEmitter;
 
 var updateList = function(){
@@ -24,7 +25,7 @@ updateList.prototype.getList = function(){
         "Content-Type":"text/plain",
         encoding: null
     }, function (error, response, body) {
-        if (!error) {
+        if (!error  && response.statusCode == 200) {
             var conv = new Iconv.Iconv('windows-1251', 'UTF-8');
             body = new Buffer(body, 'binary');
             body = conv.convert(body).toString();
@@ -84,13 +85,22 @@ var setUnixTime = function (date) {
 };
 var parser =  new updateList();
 parser.getList();
+/*
 new CronJob({
-    cronTime: '59 * * * * *',
+    cronTime: '* *//*
+5 * * * *',
     onTick: function() {
+        console.log("Список начал обновление");
         parser.getList();
     },
     start: true
 });
+*/
+
+setInterval(function() {
+    console.log("Список начал обновление");
+    parser.getList();
+}, 300000);
 
 
 module.exports = parser;
