@@ -22,6 +22,7 @@
     "iconv": "*",
     "bson-objectid": "*",
     "cron": "*",
+    "cors": "*",
     "gulp": "^3.9.0",
     "gulp-angular-templatecache": "^1.7.0",
     "gulp-browserify": "^0.5.1",

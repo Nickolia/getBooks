@@ -1,2 +1,4 @@
 node_modules/
+.lib/tmp/composition/*
+.lib/tmp/lib_author
 .idea/
